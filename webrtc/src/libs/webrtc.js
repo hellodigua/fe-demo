@@ -1,8 +1,7 @@
 export default class WebRTC {
-  constructor() {
-    this.video = document.querySelector('#video');
-    this.control = document.querySelector('#play');
-    this.canvas = document.querySelector('#canvas');
+  constructor(options) {
+    this.video = options.video;
+    this.canvas = options.canvas;
     this.streaming = false;
     this.isMobile = false;
     this.source = 'backend';
@@ -42,12 +41,28 @@ export default class WebRTC {
     }
   }
 
+  getState() {
+    const a = navigator.mediaDevices.getSupportedConstraints();
+    console.log(a);
+  }
+
+  play() {
+    this.getMedia();
+  }
+
+  stop() {
+    const stream = this.video.srcObject;
+
+    const track = stream.getTracks()[0];
+
+    track.stop();
+  }
+
   captrue() {
     const context = this.canvas.getContext('2d');
-    const preview = document.getElementById('preview');
-    context.drawImage(this.video, 0, 0, 480, 640);
+    context.drawImage(this.video, 0, 0, 640, 480);
 
-    preview.src = this.canvas.toDataURL('image/png');
+    return this.canvas.toDataURL('image/png');
   }
 
   async getMedia () {
@@ -67,6 +82,8 @@ export default class WebRTC {
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
 
       this.video.srcObject = stream;
+
+      this.videoState = stream;
 
       this.video.play();
     } catch (e) {
