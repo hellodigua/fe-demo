@@ -1,4 +1,16 @@
+## 如何连接手机实时调试
 
+1. 手机：打开USB调试
+2. 电脑端chrome跳转到 chrome://inspect ，确认Discover USB devices已勾选
+3. 手机连接到电脑，手机上会弹框提示是否信任电脑
+4. 手机chrome浏览器打开 http://hellodigua.github.io/fe-demo/webrtc/
+5. 电脑端刷新 chrome://inspect，设备应该已连接了，此时选择打开的网页：WebRTC，并选择inspect，开始调试
+
+### chrome准备
+
+-
+
+https://wiki.jikexueyuan.com/project/chrome-devtools/remote-debugging-on-android.html
 
 ## 插件
 
@@ -22,7 +34,7 @@
 
 需要创建 .eslintrc 文件配置 eslint 规则
 
-- rollup-plugin-replace 
+- rollup-plugin-replace
 变量替换，可以将动态设置的变量提取出来在配置文件中设置
 
 - rollup-plugin-postcss
