@@ -1,0 +1,32 @@
+/**
+ * 累计威胁列表
+ *
+ * @url /monitor/threat
+ *
+ * Parameter description and other instructions.
+ * region: 地区
+ * website: 网站名称
+ * domain: 域名
+ * ip: ip
+ * totalScan: 扫描次数
+ * totalThreat: 累计威胁总数
+ * recentScanTime: 最近扫描时间
+ * 
+ * 
+ * etc.
+ */
+
+{
+  "code": 1,
+  "result|100": [
+    {
+      "region": "@province @city @county",
+      "website": "@cname()的网站",
+      "domain": "@string(lower,5).com",
+      "ip": "@ip",
+      "totalScan": "@natural(0,50)",
+      "totalThreat": "@natural(1000,999999)",
+      "recentScanTime": "@date('yyyy-MM-dd')"
+    }
+  ]
+}

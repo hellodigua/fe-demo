@@ -1,4 +1,4 @@
-#fe-demo
+# fe-demo
 
 各种前端技术的尝试和练习
 
@@ -13,3 +13,7 @@
 ## md-to-yuque
 
 - 将 markdown 文件传到语雀（示例是将 snippets 转为 md 再传到语雀）
+
+## mock-server
+
+- 本地的 mock-server
